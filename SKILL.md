@@ -3,7 +3,7 @@ name: claim-audit
 description: Audit claims for grounding using information-theoretic reasoning. Use for "verify this claim", "fact-check", "audit for hallucination", "check my sources", or evaluating whether citations support assertions. Works for AI and human-authored text.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
   author: mhalle
 ---
 
