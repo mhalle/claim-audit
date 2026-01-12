@@ -1,6 +1,6 @@
 ---
 name: claim-audit
-version: 0.1.0
+version: 0.1.1
 description: Audit claims for grounding using information-theoretic reasoning. Use when asked to "verify this claim", "check if grounded", "audit for hallucination", "is this supported by the evidence", "fact-check this", "check my sources", "audit my reasoning", "does this hold up", or when evaluating whether cited sources actually support assertions. Works for both AI-generated and human-authored claims. Works directly in conversation without external API calls.
 ---
 
