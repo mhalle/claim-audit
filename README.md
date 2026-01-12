@@ -13,12 +13,16 @@ Works for:
 
 ## Installation
 
-Download the release zip and install as a Claude Code skill, or clone directly:
+### Claude Code
 
 ```bash
-# Clone to your skills directory
-git clone https://github.com/mhalle/claim-audit ~/.claude/skills/claim-audit
+curl -L https://github.com/mhalle/claim-audit/releases/latest/download/claim-audit.skill -o /tmp/claim-audit.skill
+unzip /tmp/claim-audit.skill -d ~/.claude/skills/
 ```
+
+### Claude on the Web
+
+Download the [latest .skill file](https://github.com/mhalle/claim-audit/releases/latest/download/claim-audit.skill) and upload it to your conversation.
 
 ## Usage
 
