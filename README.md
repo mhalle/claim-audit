@@ -17,7 +17,7 @@ Download the release zip and install as a Claude Code skill, or clone directly:
 
 ```bash
 # Clone to your skills directory
-git clone https://github.com/YOUR_USERNAME/claim-audit ~/.claude/skills/claim-audit
+git clone https://github.com/mhalle/claim-audit ~/.claude/skills/claim-audit
 ```
 
 ## Usage
