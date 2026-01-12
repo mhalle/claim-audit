@@ -80,6 +80,25 @@ Beyond the paper's framework, this skill introduces:
 - Batch audit and document audit protocols
 - Subagent strategies for unbiased self-audit
 
+## Development
+
+### Versioning
+
+This project uses semantic versioning. To release a new version:
+
+1. Update `metadata.version` in `SKILL.md`
+2. Add entry to `CHANGELOG.md`
+3. Commit, tag, and push:
+   ```bash
+   git add -A && git commit -m "Bump to vX.Y.Z"
+   git tag vX.Y.Z
+   git push && git push --tags
+   ```
+
+The GitHub Action will automatically build and attach `.skill` files to the release.
+
+**Important:** Bump the version for documentation changes, not just code changes. The LLM reads the skill documentation and may change behavior based on it—documentation *is* the implementation for a skill.
+
 ## License
 
 MIT
