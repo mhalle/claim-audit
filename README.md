@@ -2,6 +2,8 @@
 
 A Claude Code skill for auditing claims made by LLMs or humans, using information-theoretic grounding analysis.
 
+**[Download latest skill](https://github.com/mhalle/claim-audit/releases/latest/download/claim-audit.skill)**
+
 ## What It Does
 
 Evaluates whether claims are actually grounded in cited evidence or merely decorative, using the "scrub-and-probe" method from compression theory. A claim is **grounded** if removing the evidence would change the claim. A claim is **unsubstantiated** if the same assertion would be made regardless of the evidence.
