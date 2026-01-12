@@ -3,7 +3,7 @@ name: claim-audit
 description: Audit claims for grounding using information-theoretic reasoning. Use for "verify this claim", "fact-check", "audit for hallucination", "check my sources", or evaluating whether citations support assertions. Works for AI and human-authored text.
 license: MIT
 metadata:
-  version: "0.1.3"
+  version: "0.2.0"
   author: mhalle
 ---
 
@@ -90,6 +90,11 @@ VERDICT: [see below]
 CONFIDENCE: [high / medium / low]
 RECOMMENDED REMEDIATION: [see resources/remediation.md]
 NOTES: [specifics]
+
+SUPPORTING EVIDENCE: (if grounded/weakly grounded)
+- Source: [title/author/publication]
+- URL/DOI: [link]
+- Snippet: "[quoted text supporting the claim]"
 ```
 
 ## Verdict Criteria
@@ -117,6 +122,19 @@ Based on Information Sufficiency Ratio (ISR = available evidence / required evid
 | **Low** | ISR < 0.5; evidence largely decorative or inaccessible |
 
 When confidence is low, prefer conservative verdicts and recommend hedging.
+
+## Evidence Documentation
+
+When a claim is marked as GROUNDED or WEAKLY GROUNDED, provide the supporting evidence:
+
+**For each source:**
+- Full citation (title/author/publication)
+- Direct URL or DOI
+- Relevant snippet (1-3 sentences of quoted text supporting the claim)
+
+This serves two purposes:
+1. Allows readers to verify the grounding themselves
+2. Makes it easy to convert the audit into properly cited content
 
 ## Inaccessible Sources
 
