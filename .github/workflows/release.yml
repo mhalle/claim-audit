@@ -1,0 +1,36 @@
+name: Release Skill
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create skill package
+        run: |
+          # Create zip with skill contents in a named directory
+          mkdir -p claim-audit
+          cp -r SKILL.md README.md LICENSE CHANGELOG.md resources claim-audit/
+          zip -r claim-audit-${{ steps.version.outputs.VERSION }}.skill claim-audit
+          cp claim-audit-${{ steps.version.outputs.VERSION }}.skill claim-audit.skill
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            claim-audit-${{ steps.version.outputs.VERSION }}.skill
+            claim-audit.skill
+          generate_release_notes: true
