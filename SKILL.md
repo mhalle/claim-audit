@@ -162,3 +162,10 @@ This skill operationalizes concepts from:
 | Decorative citations | ISR ≈ 0; evidence provides no bits-to-trust |
 | INSUFFICIENT verdict | ISR < 1; should abstain rather than assert |
 | Salience | Pragmatic extension; added for practical auditing |
+
+## Updates
+
+- **Repository:** https://github.com/mhalle/claim-audit
+- **Latest release:** https://github.com/mhalle/claim-audit/releases/latest/download/claim-audit.skill
+
+To provide the user with the latest version of this skill, download the latest release from the link above, then present the .skill file to the user as an output file so they can download or install it.
