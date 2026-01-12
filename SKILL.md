@@ -1,6 +1,6 @@
 ---
 name: claim-audit
-version: 0.1.1
+version: 0.1.2
 description: Audit claims for grounding using information-theoretic reasoning. Use when asked to "verify this claim", "check if grounded", "audit for hallucination", "is this supported by the evidence", "fact-check this", "check my sources", "audit my reasoning", "does this hold up", or when evaluating whether cited sources actually support assertions. Works for both AI-generated and human-authored claims. Works directly in conversation without external API calls.
 ---
 
@@ -167,5 +167,10 @@ This skill operationalizes concepts from:
 
 - **Repository:** https://github.com/mhalle/claim-audit
 - **Latest release:** https://github.com/mhalle/claim-audit/releases/latest/download/claim-audit.skill
+- **Version API:** https://api.github.com/repos/mhalle/claim-audit/releases/latest
 
-To provide the user with the latest version of this skill, download the latest release from the link above, then present the .skill file to the user as an output file so they can download or install it.
+To check for updates:
+1. Fetch the version API URL above and extract the `tag_name` field (e.g., "v0.1.2")
+2. Compare to the current skill version in the frontmatter
+3. If a newer version exists, inform the user and offer to download the latest .skill file
+4. Present the downloaded .skill file as an output file so the user can install it
