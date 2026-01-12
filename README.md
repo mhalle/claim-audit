@@ -2,7 +2,7 @@
 
 A Claude Code skill for auditing claims made by LLMs or humans, using information-theoretic grounding analysis.
 
-**[Download latest skill](https://github.com/mhalle/claim-audit/releases/latest/download/claim-audit.skill)**
+**Download:** https://github.com/mhalle/claim-audit/releases/latest/download/claim-audit.skill
 
 ## What It Does
 
