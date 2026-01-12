@@ -55,13 +55,30 @@ Key concepts adapted:
 Based on the Strawberry MCP server from the Pythea project:
 https://github.com/leochlon/pythea/tree/main/strawberry
 
+### Relationship to the Paper
+
+This skill is a **qualitative interpretation** of the paper's quantitative framework. The paper defines precise mathematical constructs (KL divergence, information budgets, ISR thresholds); this skill translates them into heuristic judgments an LLM can apply through reasoning:
+
+| Paper (quantitative) | Skill (qualitative) |
+|---------------------|---------------------|
+| Δ̄ = 𝔼_π[KL(P ∥ S_π)] | "high / medium / low / zero Δ" |
+| ISR = Δ̄ / B2T | "high / medium / low confidence" |
+| ISR < 1 → abstain | INSUFFICIENT verdict |
+| log(p₁/p₀) nats | "would you know this without the source?" |
+
+The skill cannot compute actual KL divergence between prior and posterior—it uses judgment to approximate what the math would show. For computational approaches, see the [Strawberry MCP implementation](https://github.com/leochlon/pythea/tree/main/strawberry).
+
 ### What This Skill Adds
+
+Beyond the paper's framework, this skill introduces:
 
 - Claim taxonomy (factual, interpretive, synthetic, editorial)
 - Salience classification (load-bearing, supporting, illustrative)
+- Rhetorical fairness evaluation
 - Proportionate remediation strategies
 - Human-specific failure modes (confirmation citation, authority padding, scope creep)
 - Batch audit and document audit protocols
+- Subagent strategies for unbiased self-audit
 
 ## License
 

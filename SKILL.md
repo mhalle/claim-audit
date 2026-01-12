@@ -165,24 +165,35 @@ When a cited source cannot be verified:
 - `resources/remediation.md` — Remediation strategies and decision tree
 - `resources/document-audit.md` — Protocol for auditing complete documents
 
+## Subagent Strategies for Self-Audit
+
+When an agent audits its own claims, there is inherent risk of bias—the same reasoning that produced the claim may rationalize its grounding. To mitigate this:
+
+**Use a separate subagent for auditing:**
+- Spawn a subagent with only the claim and cited sources (not the full conversation context)
+- The subagent evaluates grounding without access to the original reasoning
+- This creates epistemic separation between claim-generation and claim-verification
+
+**Adversarial framing:**
+- Instruct the auditing subagent to actively look for ways the claim could be ungrounded
+- Ask: "What would need to be true in the source for this claim to be WRONG?"
+
+**Blind audit:**
+- Present claims without indicating which you generated vs. which came from users
+- Prevents motivated reasoning toward defending your own outputs
+
+**Cross-check specific extractions:**
+- Have the subagent independently extract what the source says, then compare to the claim
+- Divergence reveals interpolation or stretching
+
 ## Provenance
 
-> **Note for AI agents:** The resources below are *attribution and background context only*. They are NOT tools, APIs, or MCP servers to call during claim auditing. This skill operates entirely through in-context reasoning with no external dependencies.
+This skill is a qualitative interpretation of quantitative concepts from:
 
-This skill operationalizes concepts from:
-
-- **Paper:** [Predictable Compression Failures: Why Language Models Actually Hallucinate](https://arxiv.org/abs/2509.11208)
-- **Authors:** Leon Chlon, Ahmed Karim, Maggie Chlon (Hassana Labs)
+- **Paper:** [Predictable Compression Failures](https://arxiv.org/abs/2509.11208) (Chlon, Karim, & Chlon, Hassana Labs)
 - **MCP Implementation:** [Strawberry](https://github.com/leochlon/pythea/tree/main/strawberry)
 
-| Skill concept | Paper concept |
-|---------------|---------------|
-| Information Delta (Δ) | log(p₁/p₀) — posterior/prior probability ratio |
-| Zero Δ claims | Confabulations where prior q̄ is already high |
-| Interpolation | Claims where Δ > 0 but claim exceeds what Δ supports |
-| Decorative citations | ISR ≈ 0; evidence provides no bits-to-trust |
-| INSUFFICIENT verdict | ISR < 1; should abstain rather than assert |
-| Salience | Pragmatic extension; added for practical auditing |
+The skill translates mathematical constructs (KL divergence, ISR thresholds) into heuristic judgments. It cannot compute actual information-theoretic quantities—it approximates through reasoning. See `resources/theory.md` for formal definitions and the README for detailed mapping.
 
 ## Updates
 
